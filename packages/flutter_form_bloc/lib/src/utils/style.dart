@@ -34,7 +34,9 @@ class Style {
   }) {
     if (fieldBlocState != null && fieldBlocState.canShowError) {
       if (errorBuilder != null) {
-        return errorBuilder(context, fieldBlocState.error);
+          final error = errorBuilder(context, fieldBlocState.error);
+        // print('error');
+        return error.isEmpty ? null : error;
       } else {
         return FieldBlocBuilder.defaultErrorBuilder(
           // ignore: curly_braces_in_flow_control_structures
